@@ -2,6 +2,7 @@
   "name": "todo-app",
   "version": "0.0.0",
   "scripts": {
+    "api": "nodemon --watch src/server src/server/index.js",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
