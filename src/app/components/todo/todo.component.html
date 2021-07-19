@@ -1,0 +1,81 @@
+<p>todo works!</p>
+<div class="todo" style="padding: 45px 0px">
+  <h2 class="text-center"><i>To Do List App</i></h2>
+</div>
+<div class="todo-container">
+  <!--ALL tasks-->
+  <div id="allTasks">
+    <h4>All Tasks</h4>
+    <div class="search-bar">
+      <input
+        type="text"
+        class="form-control search"
+        placeholder="Search"
+        [(ngModel)]="searchTerm"
+        (keyup)="filter()"
+      />
+    </div>
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="itemData"
+        (keyup.enter)="addItem()"
+      />
+      <button class="input-group-addon hover-cursor" (click)="addItem()">
+        <span class="fa fa-plus-circle fa-2x"></span>
+      </button>
+    </div>
+
+    <div class="list">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of filteredItems">
+          <span
+            class="hover-cursor"
+            [class.text-success]="item.complete"
+            [class.text-warning]="!item.complete"
+            (click)="updateItem(item, item.complete)"
+          >
+            <span
+              class="fa fa-lg"
+              [ngClass]="item.complete ? 'fa-check-circle-o' : 'fa-circle-thin'"
+            ></span>
+          </span>
+          <span>{{ item.todoContent }}</span>
+          <span
+            class="hover-cursor text-danger pull-right"
+            (click)="deleteItem(item)"
+          >
+            <span class="fa fa-trash-o fa-lg"></span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--COMPLETED tasks-->
+  <div id="completeTasks">
+    <h4 class="text-success">Completed Tasks</h4>
+
+    <div class="list">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of completedList">
+          <span class="fa fa-lg text-success fa-check-circle-o"></span>
+          {{ item.todoContent }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--PENDING tasks-->
+  <div id="pendingTasks">
+    <h4 class="text-danger">Pending Tasks</h4>
+
+    <div class="list">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of pendingList">
+          <span class="fa fa-lg text-warning fa-circle-thin"></span>
+          {{ item.todoContent }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

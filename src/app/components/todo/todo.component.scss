@@ -1,0 +1,37 @@
+.list-group-item span {
+  padding: 0px 5px;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  // max-width: 300px;
+  word-break: break-all;
+  // hyphens: auto;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+.list-group-item {
+  white-space: nowrap;
+  // overflow: ellipsis;
+}
+.search-bar .search {
+  margin: 5px 0px;
+}
+.todo-container {
+  display: flex;
+  justify-content: space-between;
+}
+.todo-container > * {
+  padding: 5px;
+  margin: 10px;
+  width: 350px;
+}
+.todo {
+  text-align: center;
+  font-size: 20px;
+  width: 100%;
+  background-color: rgb(154, 111, 172);
+}
+.list {
+  overflow: auto;
+  margin: 5px 0px;
+  max-height: 60%;
+}
